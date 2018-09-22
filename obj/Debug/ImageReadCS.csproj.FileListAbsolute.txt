@@ -1,0 +1,14 @@
+C:\Users\Admin\Source\Repos\Img_Task1\bin\AnyCPU\Debug\ImageReadCS.exe
+C:\Users\Admin\Source\Repos\Img_Task1\bin\AnyCPU\Debug\ImageReadCS.pdb
+C:\Users\Admin\Source\Repos\Img_Task1\obj\Debug\ImageReadCS.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Source\Repos\Img_Task1\obj\Debug\ImageReadCS.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Img_Task1\obj\Debug\ImageReadCS.exe
+C:\Users\Admin\Source\Repos\Img_Task1\obj\Debug\ImageReadCS.pdb
+C:\Users\Admin\Source\Repos\Img_Task1\bin\AnyCPU\Debug\Program.cs
+C:\Users\Admin\Source\Repos\Img_Task1\Img_Task1\Img_Task1\obj\Debug\ImageReadCS.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Source\Repos\Img_Task1\Img_Task1\Img_Task1\obj\Debug\ImageReadCS.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Img_Task1\Img_Task1\Img_Task1\obj\Debug\ImageReadCS.exe
+C:\Users\Admin\Source\Repos\Img_Task1\Img_Task1\Img_Task1\obj\Debug\ImageReadCS.pdb
+C:\Users\Admin\Source\Repos\Img_Task1\Img_Task1\Img_Task1\bin\AnyCPU\Debug\Program.cs
+C:\Users\Admin\Source\Repos\Img_Task1\Img_Task1\Img_Task1\bin\AnyCPU\Debug\ImageReadCS.exe
+C:\Users\Admin\Source\Repos\Img_Task1\Img_Task1\Img_Task1\bin\AnyCPU\Debug\ImageReadCS.pdb
