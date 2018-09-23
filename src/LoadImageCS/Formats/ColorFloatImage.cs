@@ -10,6 +10,46 @@ namespace ImageReadCS
     public struct ColorFloatPixel
     {
         public float b, g, r, a;
+
+        public static ColorFloatPixel operator *(float multiplier, ColorFloatPixel pix)
+        {
+            ColorFloatPixel out_p;
+            out_p.b = pix.b * multiplier;
+            out_p.g = pix.g * multiplier;
+            out_p.r = pix.r * multiplier;
+            out_p.a = pix.a * multiplier;
+            return out_p;
+        }
+
+        public static ColorFloatPixel operator *(ColorFloatPixel pix, float multiplier)
+        {
+            ColorFloatPixel out_p;
+            out_p.b = pix.b * multiplier;
+            out_p.g = pix.g * multiplier;
+            out_p.r = pix.r * multiplier;
+            out_p.a = pix.a * multiplier;
+            return out_p;
+        }
+
+        public static ColorFloatPixel operator +(ColorFloatPixel pix, float added)
+        {
+            ColorFloatPixel out_p;
+            out_p.b = pix.b + added;
+            out_p.g = pix.g + added;
+            out_p.r = pix.r + added;
+            out_p.a = pix.a + added;
+            return out_p;
+        }
+
+        public static ColorFloatPixel operator +(ColorFloatPixel pix1, ColorFloatPixel pix2)
+        {
+            ColorFloatPixel out_p;
+            out_p.b = pix1.b + pix2.b;
+            out_p.g = pix1.g + pix2.g;
+            out_p.r = pix1.r + pix2.r;
+            out_p.a = pix1.a + pix2.a;
+            return out_p;
+        }
     }
 
     public class ColorFloatImage
