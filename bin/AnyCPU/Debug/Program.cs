@@ -111,21 +111,52 @@ namespace ImageReadCS
 
         }
 
-        /*ColorFloatPixel sobel_edge(ColorFloatImage image, int x_flag, int y_flag, String mode)
+        static ColorFloatImage img_expansion (ColorFloatImage inp_img, int mode, int radius)
         {
-            if (mode == "rep")
-            {
+            ColorFloatImage out_img = new ColorFloatImage(inp_img.Width + 2 * radius, inp_img.Height + 2 * radius);
+            for (int y = radius; y < out_img.Height - radius; y++)
+                for (int x = 0; x < out_img.Width; x++)
+                {
+                    if (mode == 0)//replicate
+                    {
+                        if (x < radius)
+                        {
+                            out_img[x, y] = inp_img[0, y - radius];
+                        }
+                        else if (x >= radius + inp_img.Width)
+                        {
+                            out_img[x, y] = inp_img[inp_img.Width - 1, y - radius];
+                        }
+                        else
+                        {
+                            out_img[x, y] = inp_img[x - radius, y - radius];
+                        }
+                    } 
+                    else if (mode == 1)//odd
+                    {
+                        if (x < radius)
+                        {
+                            //out_img[x, y] = inp_img
+                        }
+                    }
+                }
+            for (int y = 0; y < radius; y++)
+                for (int x = 0; x < out_img.Width; x++)
+                {
+                    if (mode == 0)//replicate
+                    {
+                        out_img[x, y] = out_img[x, radius];
+                    }
+                }
+            for (int y = inp_img.Width + radius; y < out_img.Height; y++)
+                for (int x = 0; x < out_img.Width; x++)
+                {
+                    if (mode == 0)//replicate
+                        out_img[x, y] = out_img[x, out_img.Height - radius];
+                }
 
-            } else if (mode == "odd")
-            {
-
-            } else if (mode == "even")
-            {
-
-            }
-
-            
-        }*/
+            return out_img;
+        }
 
         static ColorFloatImage sobel(ColorFloatImage image, String mode, char axis)
         {
@@ -148,14 +179,16 @@ namespace ImageReadCS
                 return image;
             }
 
-            ColorFloatImage out_img = new ColorFloatImage(image.Width, image.Height);
+            //ColorFloatImage out_img = new ColorFloatImage(image.Width, image.Height);
+            ColorFloatImage out_img = img_expansion(image, 0, 5);
             for (int y = 0; y < image.Height; y++)
                 for (int x = 0; x < image.Width; x++)
                 {
                     if (x == 0 || y == 0 || x == image.Width - 1 || y == image.Height - 1)
                     {
 
-                    } else
+                    }
+                    else
                     {
                         out_img[x, y] = x_flag * ((-1) * (image[x - 1, y - 1] + image[x + 1, y - 1]) + (-2) * image[x, y - 1] +
                             image[x - 1, y + 1] + image[x + 1, y + 1] + 2 * image[x, y + 1]) +
@@ -185,7 +218,7 @@ namespace ImageReadCS
                 return;
             }
             ColorFloatImage image = ImageIO.FileToColorFloatImage(InputFileName);
-            ColorFloatImage output_image = sobel(image, "rep", 'x');
+            ColorFloatImage output_image = sobel(image, "rep", 'y');
 
             ImageIO.ImageToFile(output_image, OutputFileName);
             Console.WriteLine("Image trasformed successfully");
