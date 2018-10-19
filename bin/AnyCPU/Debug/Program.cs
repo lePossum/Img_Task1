@@ -198,8 +198,8 @@ namespace ImageReadCS
                 {
                     ColorFloatPixel[] pixel_array = new ColorFloatPixel[window_size * window_size];
                     int n = 0;
-                    for (int j = -(window_size / 2); j < window_size / 2; j++)
-                        for (int i = -(window_size / 2); i < window_size / 2; i++)
+                    for (int j = -(window_size / 2); j <= window_size / 2; j++)
+                        for (int i = -(window_size / 2); i <= window_size / 2; i++)
                         {
                             if ((x + i >= 0) && (x + i < image.Width) && (y + j >= 0) && (y + j < image.Height))
                                 pixel_array[n++] = image[x + i, y + j];
@@ -383,9 +383,7 @@ namespace ImageReadCS
 
         static void Main(string[] args)
         {
-            //ColorFloatImage image = ImageIO.FileToColorFloatImage(InputFileName);
             ColorFloatImage output_image = null;
-            //= gradient(image, "odd", (float)1);
             if (args[0] == "mirror")
             {
                 ColorFloatImage image = ImageIO.FileToColorFloatImage(args[2]);
@@ -419,8 +417,8 @@ namespace ImageReadCS
             else if (args[0] == "gradient")
             {
                 ColorFloatImage image = ImageIO.FileToColorFloatImage(args[3]);
-                //output_image = gradient(image, args[1], (float)(Convert.ToDouble(args[2])));
-                output_image = img_expansion(image, "odd", 40);
+                output_image = gradient(image, args[1], (float)(Convert.ToDouble(args[2])));
+                //output_image = img_expansion(image, "odd", 40);
                 ImageIO.ImageToFile(output_image, args[4]);
             }
             Console.WriteLine("Image trasformed successfully");
